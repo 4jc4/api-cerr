@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  postgres:
+    container_name: db-cerr
+    image: bitnami/postgresql
+    restart: always
+    environment:
+      - POSTGRES_USER=cardoso
+      - POSTGRES_PASSWORD=exo2008
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+volumes:
+  postgres:
