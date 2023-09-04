@@ -5,6 +5,7 @@ import { PrismaClientExceptionFilter } from './prisma-client-exception/prisma-cl
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors();
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
   app.useGlobalPipes(new ValidationPipe({ errorHttpStatusCode: 422 }));
   const { httpAdapter } = app.get(HttpAdapterHost);
